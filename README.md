@@ -6,7 +6,7 @@ NearBy
 
 ```
 This simpleapp, NearBy is a simple iOS app that connects to the Foursquare api,
-and using the user’s current location generates a list of nearby venues, 
+and using the users current location generates a list of nearby venues, 
 in a graphical interface similar to a flip clock.
 ```
 ```
