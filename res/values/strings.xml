@@ -5,4 +5,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
 
+    
+    <!-- welcomeActivity -->
+    <string name="welcome_logo">Discover the places around you</string>
+    <string name="welcome_whats_around_button">What\'s around ?</string>
 </resources>
