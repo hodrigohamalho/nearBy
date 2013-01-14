@@ -1,11 +1,9 @@
 package com.huge.nearby.activities;
 
 import android.content.Context;
-import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -14,11 +12,11 @@ import android.view.Window;
 import com.huge.nearby.R;
 import com.huge.nearby.geo.LocationUtil;
 import com.huge.nearby.geo.NearByLocationListener;
-import com.huge.nearby.tasks.RequestAcessTokenTask;
 import com.huge.nearby.tasks.RequestNearVenuesTask;
-import com.huge.nearby.utils.FoursquareUtil;
 
 public class NearbyActivity extends FragmentActivity {
+	
+	public static final String PREFS_NAME = "NearbyStorage";
 
 	private LocationManager locationManager;
 	private LocationListener locationListener = new NearByLocationListener();
@@ -26,14 +24,17 @@ public class NearbyActivity extends FragmentActivity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		removeTitleBar();
-
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nearby);
-		loginToForsquare();
+		
+		String authCode = getIntent().getExtras().getString("access_token");
+		
+		Location location = getActualLocation();
+		new RequestNearVenuesTask().execute(Double.toString(location.getLatitude()), 
+											Double.toString(location.getLongitude()), 
+											authCode);
 	}
 
-	
-	
 	private Location getActualLocation() {
 		Location gpsLocation = null;
 		Location networkLocation = null;
@@ -70,31 +71,5 @@ public class NearbyActivity extends FragmentActivity {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	}
 	
-	private void loginToForsquare() {
-		// Call the webbrowser with the Foursquare OAuth login URL
-		Intent intent = new Intent(Intent.ACTION_VIEW);
-		intent.setData(Uri.parse(FoursquareUtil.FOURSQUARE_LOGIN_URL));
-		startActivity(intent);
-	}
-	
-	public void onResume() {
-		super.onResume();
-
-		// extract the OAUTH access token if it exists
-	    Uri uri = this.getIntent().getData();
-	    if(uri != null) {
-	    	String code = uri.getQueryParameter("code");
-	    	
-	    	// Check if there is a parameter called "code"
-	    	if(code == null){
-	    		new RequestAcessTokenTask().execute(code);
-	    	}else if (code != null){
-	    		Location location = getActualLocation();
-	    		String latitudeLongitude = location.getLatitude() + "," + location.getLongitude();
-	    		new RequestNearVenuesTask().execute(latitudeLongitude, code);
-	    	}
-	    }
-	}
-
 }
 
