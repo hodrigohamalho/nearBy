@@ -8,13 +8,13 @@
     <!-- welcomeActivity -->
     <string name="welcome_logo">Discover the places around you</string>
     <string name="welcome_whats_around_button">What\'s around ?</string>
-    
     <string name="title_activity_nearby">NearbyActivity</string>
-    
     <string name="enable_gps">Enable GPS</string>
     <string name="enable_gps_dialog">GPS provider not enabled. Would you like to enable it?</string>
-    
     <string name="not_support_gps">GPS provider not supported</string>
     <string name="not_support_network">Network provider not supported</string>
+    <string name="no_places_founded">No places found.</string>
+    <string name="places_fonunded">Places found near you!</string>
+    <string name="title_activity_places_fragment">PlacesFragmentActivity</string>
 
 </resources>
