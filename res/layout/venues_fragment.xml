@@ -1,89 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF" >
+    android:background="#FFF"
+    android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/priceLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/addressLabel"
-        android:layout_below="@+id/addressLabel"
-        android:layout_marginTop="14dp"
-        android:text="Price: " />
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="2dp"
+        android:background="#e2e4e3"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp"
+        android:stretchColumns="*" >
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/secondCategory"
-        android:layout_below="@+id/placesFoundLabel"
-        android:layout_marginTop="14dp"
-        android:src="@drawable/nearby__04" />
+        <TableRow>
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Place Image"
+                android:layout_gravity="center"
+                android:src="@drawable/nearby__04" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/addressLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/webSiteLabel"
-        android:layout_below="@+id/webSiteLabel"
-        android:layout_marginTop="14dp"
-        android:text="Address: " />
+        <TableRow>
+            <TextView
+                android:id="@+id/venueNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:text="venueNameText"
+                android:textColor="#9d9f9f" />
+        </TableRow>
+    </TableLayout>
 
-    <TextView
-        android:id="@+id/venueNameText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="19dp"
-        android:text="venueNameText" />
+    <TableLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="200dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#9d9f9f"
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="10dp" >
 
-    <TextView
-        android:id="@+id/secondCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/venueNameText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="29dp"
-        android:text="Secondary Category" />
+        <TableRow>
+            <TextView
+                android:id="@+id/addressLabel"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:text="Address: " />
+            <TextView
+                android:id="@+id/addressText"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="QND 60 CASA 13" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/addressText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/addressLabel"
-        android:layout_alignBottom="@+id/addressLabel"
-        android:layout_alignLeft="@+id/venueNameText"
-        android:text="QND 60 CASA 13" />
+        <TableRow>
+            <TextView
+                android:id="@+id/webSiteLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Website:" />
 
-    <TextView
-        android:id="@+id/webSiteLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/secondCategory"
-        android:layout_marginTop="26dp"
-        android:layout_toLeftOf="@+id/secondCategory"
-        android:text="Website:" />
+            <TextView
+                android:id="@+id/websiteText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="www.rodrigoramalho.org" />
+        </TableRow>
 
-    <TextView
-        android:id="@+id/priceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/priceLabel"
-        android:layout_alignBottom="@+id/priceLabel"
-        android:layout_alignLeft="@+id/secondCategory"
-        android:text="10,00" />
+        <TableRow>
+            <TextView
+                android:id="@+id/priceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price: " />
 
-    <TextView
-        android:id="@+id/websiteText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/webSiteLabel"
-        android:layout_alignBottom="@+id/webSiteLabel"
-        android:layout_alignLeft="@+id/addressText"
-        android:text="www.rodrigoramalho.org" />
+            <TextView
+                android:id="@+id/priceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10,00" />
+        </TableRow>
+    </TableLayout>
 
-</RelativeLayout>
+</LinearLayout>
