@@ -1,6 +1,6 @@
 package com.huge.nearby.foursquare.entities;
 
-import fi.foyt.foursquare.api.FoursquareEntity;
+import com.huge.nearby.foursquare.FoursquareEntity;
 
 public class Count implements FoursquareEntity {
 

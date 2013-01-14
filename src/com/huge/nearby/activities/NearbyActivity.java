@@ -1,20 +1,22 @@
 package com.huge.nearby.activities;
 
+import android.app.Activity;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
+import android.view.View;
 import android.view.Window;
+import android.widget.ImageButton;
 
 import com.huge.nearby.R;
 import com.huge.nearby.geo.LocationUtil;
 import com.huge.nearby.geo.NearByLocationListener;
 import com.huge.nearby.tasks.RequestNearVenuesTask;
 
-public class NearbyActivity extends FragmentActivity {
+public class NearbyActivity extends Activity{
 	
 	public static final String PREFS_NAME = "NearbyStorage";
 
@@ -25,12 +27,28 @@ public class NearbyActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		removeTitleBar();
 		super.onCreate(savedInstanceState);
+		
 		setContentView(R.layout.activity_nearby);
 		
 //		String authCode = getIntent().getExtras().getString("access_token");
 		
-		Location location = getActualLocation();
-		new RequestNearVenuesTask().execute(Double.toString(location.getLatitude()), 
+		final Location location = getActualLocation();
+		
+		ImageButton refresh = (ImageButton) findViewById(R.id.refreshButton);
+		refresh.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				requestVenues(location);
+			}
+		});
+		
+		requestVenues(location);
+		
+	}
+
+	private void requestVenues(Location location) {
+		new RequestNearVenuesTask(this).execute(Double.toString(location.getLatitude()), 
 											Double.toString(location.getLongitude()));
 	}
 
@@ -69,6 +87,6 @@ public class NearbyActivity extends FragmentActivity {
 	private void removeTitleBar() {
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	}
-	
+
 }
 
