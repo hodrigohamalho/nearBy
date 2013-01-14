@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF" >
+
+    <TextView
+        android:id="@+id/priceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/addressLabel"
+        android:layout_below="@+id/addressLabel"
+        android:layout_marginTop="14dp"
+        android:text="Price: " />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/secondCategory"
+        android:layout_below="@+id/placesFoundLabel"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/nearby__04" />
+
+    <TextView
+        android:id="@+id/addressLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/webSiteLabel"
+        android:layout_below="@+id/webSiteLabel"
+        android:layout_marginTop="14dp"
+        android:text="Address: " />
+
+    <TextView
+        android:id="@+id/venueNameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:text="venueNameText" />
+
+    <TextView
+        android:id="@+id/secondCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/venueNameText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="Secondary Category" />
+
+    <TextView
+        android:id="@+id/addressText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/addressLabel"
+        android:layout_alignBottom="@+id/addressLabel"
+        android:layout_alignLeft="@+id/venueNameText"
+        android:text="QND 60 CASA 13" />
+
+    <TextView
+        android:id="@+id/webSiteLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/secondCategory"
+        android:layout_marginTop="26dp"
+        android:layout_toLeftOf="@+id/secondCategory"
+        android:text="Website:" />
+
+    <TextView
+        android:id="@+id/priceText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/priceLabel"
+        android:layout_alignBottom="@+id/priceLabel"
+        android:layout_alignLeft="@+id/secondCategory"
+        android:text="10,00" />
+
+    <TextView
+        android:id="@+id/websiteText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/webSiteLabel"
+        android:layout_alignBottom="@+id/webSiteLabel"
+        android:layout_alignLeft="@+id/addressText"
+        android:text="www.rodrigoramalho.org" />
+
+</RelativeLayout>

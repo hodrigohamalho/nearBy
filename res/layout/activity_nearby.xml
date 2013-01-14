@@ -4,24 +4,41 @@
     android:layout_height="match_parent"
     android:background="#FFF" >
 
-    <ImageView
-        android:id="@+id/imageView1"
+    <ImageButton
+        android:id="@+id/refreshButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_marginRight="21dp"
         android:layout_marginTop="21dp"
-        android:src="@drawable/nearby__03" />
+        android:background="@null"
+        android:src="@drawable/refresh_button" />
 
     <TextView
-        android:id="@+id/textView1"
+        android:id="@+id/placesFoundLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_alignTop="@+id/imageView1"
+        android:layout_alignBottom="@+id/refreshButton"
         android:layout_centerHorizontal="true"
-        android:textSize="20sp"
-        android:text="TextView" />
+        android:text="Places found near you!"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/numberOfPlacesNearText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/placesFoundLabel"
+        android:layout_centerHorizontal="true"
+        android:textSize="20sp" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/placesFoundLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="63dp" />
 
 </RelativeLayout>

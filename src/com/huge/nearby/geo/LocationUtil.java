@@ -7,8 +7,6 @@ import android.location.LocationManager;
 public class LocationUtil {
 
 	private static final int TWO_MINUTES = 1000 * 60 * 2;
-    private static final int TEN_SECONDS = 10000;
-    private static final int TEN_METERS = 10;
     private static final int RUN_ONCE = 1000000000;
 
 	/** Determines whether one Location reading is better than the current Location fix.
