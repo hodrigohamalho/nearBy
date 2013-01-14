@@ -31,7 +31,7 @@ public class WelcomeActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				loginToForsquare();
+				startActivity(new Intent(NearbyActivity.class.getCanonicalName()));
 			}
 		});
 	}
@@ -40,7 +40,11 @@ public class WelcomeActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 
-		// extract the OAUTH access token if it exists
+//		extractOauthToken();
+	}
+
+	@SuppressWarnings("unused")
+	private void extractOauthToken() {
 		Uri uri = this.getIntent().getData();
 		if(uri != null) {
 			String access_token = uri.getQueryParameter("code");
@@ -51,6 +55,7 @@ public class WelcomeActivity extends Activity {
 		}
 	}
 
+	@SuppressWarnings("unused")
 	private void loginToForsquare() {
 		// Call the webbrowser with the Foursquare OAuth login URL
 		Intent intent = new Intent(Intent.ACTION_VIEW);

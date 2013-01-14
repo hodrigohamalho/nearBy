@@ -20,7 +20,6 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, String>{
 	protected String doInBackground(String... params) {
 		String latitude = params[0];
 		String longitude = params[1];
-		String authCode = params[2];
 
 		VenueGroup[] groups = null;
 		CompactVenue[] venues = null;
@@ -28,7 +27,7 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, String>{
 		String ll = latitude + "," + longitude;
 
 		try {
-			String url = FoursquareUtil.getFoursquareVenesSearchURL(authCode, ll);
+			String url = FoursquareUtil.getFoursquareVenesSearchURL(ll);
 			ApiRequestResponse response = new FoursquareApi().doApiRequest(Method.GET, url);
 			if (response.getMeta().getCode() == 200) {
 
@@ -39,8 +38,6 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, String>{
 						System.out.println("Name: "+compactVenue.getName());
 					}
 				} 
-				
-				
 			}
 
 		} catch (Exception e) {

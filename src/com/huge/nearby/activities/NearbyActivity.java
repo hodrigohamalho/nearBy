@@ -27,12 +27,11 @@ public class NearbyActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nearby);
 		
-		String authCode = getIntent().getExtras().getString("access_token");
+//		String authCode = getIntent().getExtras().getString("access_token");
 		
 		Location location = getActualLocation();
 		new RequestNearVenuesTask().execute(Double.toString(location.getLatitude()), 
-											Double.toString(location.getLongitude()), 
-											authCode);
+											Double.toString(location.getLongitude()));
 	}
 
 	private Location getActualLocation() {
