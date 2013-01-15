@@ -18,11 +18,11 @@ import com.huge.nearby.foursquare.ApiRequestResponse;
 import com.huge.nearby.foursquare.FoursquareApi;
 import com.huge.nearby.foursquare.JSONFieldParser;
 import com.huge.nearby.foursquare.Method;
-import com.huge.nearby.foursquare.entities.Category;
 import com.huge.nearby.foursquare.entities.CompactVenue;
 import com.huge.nearby.foursquare.entities.VenueGroup;
 import com.huge.nearby.fragments.VenuesFragment;
-import com.huge.nearby.fragments.VenuesHolder;
+import com.huge.nearby.io.ImageSize;
+import com.huge.nearby.persistence.VenuesHolder;
 import com.huge.nearby.utils.FoursquareUtil;
 
 
@@ -62,13 +62,7 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, CompactVenu
 				} 
 			}
 			
-			for (CompactVenue venue : venues) {
-				System.out.println(venue.getName());
-				for (Category category : venue.getCategories()) {
-					System.out.println(category.getName());
-					System.out.println(category.getIcon());
-				}
-			}
+			parseUrlToBitmap(venues);
 			
 			new VenuesHolder(venues, 0);
 		} catch (Exception e) {
@@ -87,7 +81,41 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, CompactVenu
 		hideProgressBar();
 	}
 
+	private void parseUrlToBitmap(CompactVenue[] venues){
+		Bitmap image = null;
+		
+		for (CompactVenue venue : venues) {
+			try {
+				String url = getFoursquareImageURL(ImageSize.LARGE, venue.getCategories()[0].getIcon());
+				image = BitmapFactory.decodeStream((InputStream) new URL(url).getContent());
+			} catch (MalformedURLException e) {
+				Log.d(FoursquareUtil.FOURQUARE_LOG_TAG, e.getMessage());
+			} catch (IOException e) {
+				Log.d(FoursquareUtil.FOURQUARE_LOG_TAG, e.getMessage());
+			}
+			
+			if (image != null){
+				venue.setImage(image);
+			}
+		}
+	}
 	
+	private String getFoursquareImageURL(ImageSize size, String icon) {
+		String url = null;
+		
+		if (size.equals(ImageSize.SMALL)){
+			return icon;
+		}else if (size.equals(ImageSize.MIDDLE)){
+			url = icon.substring(0, icon.length()-4);
+			url += "_64.png";
+		}else{
+			url = icon.substring(0, icon.length()-4);
+			url += "_256.png";
+		}
+		
+		return url;
+	}
+
 	private void showProgressBar() {
 		progressBar = (ProgressBar) this.activity.findViewById(R.id.progressBar);
 		progressBar.setVisibility(ProgressBar.VISIBLE);

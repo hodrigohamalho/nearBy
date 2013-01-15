@@ -6,12 +6,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.huge.nearby.R;
 import com.huge.nearby.entities.Direction;
 import com.huge.nearby.foursquare.entities.CompactVenue;
+import com.huge.nearby.persistence.VenuesHolder;
 
 public class VenuesFragment extends Fragment{
 
@@ -70,16 +69,8 @@ public class VenuesFragment extends Fragment{
 			frag = this;
 		}
 		
-		TextView venueName = (TextView) frag.getActivity().findViewById(R.id.venueNameText); 
-		TextView website = (TextView) frag.getActivity().findViewById(R.id.websiteText); 
-		TextView address = (TextView) frag.getActivity().findViewById(R.id.addressText);
-		ImageView image = (ImageView) frag.getActivity().findViewById(R.id.imageView1);
-		
-		image.setImageBitmap(venue.getImagem());
-		venueName.setText(venue.getName());
-		website.setText(venue.getUrl());
-		address.setText(venue.getLocation().getAddress());		
+		venue.fillEmptyValues();
+		venue.updateFieldsOnView(frag);
 	}
-
 
 }

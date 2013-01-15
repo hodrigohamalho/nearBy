@@ -20,6 +20,10 @@ public class Location implements FoursquareEntity {
   public String getAddress() {
     return address;
   }
+  
+  public void setAddress(String address){
+	  this.address = address;
+  }
 
   public String getCrossStreet() {
     return crossStreet;
@@ -55,6 +59,10 @@ public class Location implements FoursquareEntity {
 
   public Double getDistance() {
     return distance;
+  }
+  
+  public void setDistance(Double distance){
+	  this.distance = distance;
   }
 
 }
