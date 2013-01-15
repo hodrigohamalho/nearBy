@@ -1,4 +1,4 @@
-package com.huge.nearby.fragments;
+package com.huge.nearby.persistence;
 
 import com.huge.nearby.foursquare.entities.CompactVenue;
 
