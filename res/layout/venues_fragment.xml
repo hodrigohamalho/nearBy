@@ -37,7 +37,6 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:padding="10dp"
-                android:text="venueNameText"
                 android:textColor="#9d9f9f" />
         </TableRow>
     </TableLayout>
@@ -60,12 +59,11 @@
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:text="Address: " />
+                android:text="@string/address_label" />
             <TextView
                 android:id="@+id/addressText"
                 android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:text="QND 60 CASA 13" />
+                android:layout_height="wrap_content" />
         </TableRow>
 
         <TableRow>

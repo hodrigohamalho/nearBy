@@ -17,7 +17,7 @@ public class VenuesHolder {
 	}
 
 	public static int venuesCount(){
-		return venues.length;
+		return venues == null ? null : venues.length;
 	}
 
 	public static int getIndex(){

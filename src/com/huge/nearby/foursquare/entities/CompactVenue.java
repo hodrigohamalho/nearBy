@@ -70,7 +70,7 @@ public class CompactVenue implements FoursquareEntity {
 		if (getLocation().getAddress() == null || getLocation().getAddress().isEmpty())
 			this.location.setAddress("Address unavailable");
 		
-		if (getLocation().getDistance() == null || getLocation().getDistance() != 0)
+		if (getLocation().getDistance() == null)
 			this.location.setDistance(Double.valueOf(0));
 		
 	}

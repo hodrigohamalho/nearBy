@@ -19,6 +19,7 @@
 
     <string name="distance_label">Distance: </string>
     <string name="website_label">Website: </string>
+    <string name="address_label">Address: </string>
     <string name="places_near_you">Places found near you!</string>
     <string name="refresh_description">refresh the results!</string>
     
