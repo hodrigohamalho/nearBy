@@ -73,27 +73,25 @@
                 android:id="@+id/webSiteLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Website:" />
+                android:text="@string/website_label" />
 
             <TextView
                 android:id="@+id/websiteText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="www.rodrigoramalho.org" />
+                android:layout_height="wrap_content" />
         </TableRow>
 
         <TableRow>
             <TextView
-                android:id="@+id/priceLabel"
+                android:id="@+id/distanceLabel"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Price: " />
+                android:layout_height="wrap_content" 
+                android:text="@string/distance_label"/>
 
             <TextView
-                android:id="@+id/priceText"
+                android:id="@+id/distanceText"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="10,00" />
+                android:layout_height="wrap_content" />
         </TableRow>
     </TableLayout>
 
