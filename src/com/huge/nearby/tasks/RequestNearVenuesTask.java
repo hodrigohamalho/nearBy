@@ -1,5 +1,12 @@
 package com.huge.nearby.tasks;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ProgressBar;
@@ -11,8 +18,11 @@ import com.huge.nearby.foursquare.ApiRequestResponse;
 import com.huge.nearby.foursquare.FoursquareApi;
 import com.huge.nearby.foursquare.JSONFieldParser;
 import com.huge.nearby.foursquare.Method;
+import com.huge.nearby.foursquare.entities.Category;
 import com.huge.nearby.foursquare.entities.CompactVenue;
 import com.huge.nearby.foursquare.entities.VenueGroup;
+import com.huge.nearby.fragments.VenuesFragment;
+import com.huge.nearby.fragments.VenuesHolder;
 import com.huge.nearby.utils.FoursquareUtil;
 
 
@@ -51,7 +61,16 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, CompactVenu
 					}
 				} 
 			}
-
+			
+			for (CompactVenue venue : venues) {
+				System.out.println(venue.getName());
+				for (Category category : venue.getCategories()) {
+					System.out.println(category.getName());
+					System.out.println(category.getIcon());
+				}
+			}
+			
+			new VenuesHolder(venues, 0);
 		} catch (Exception e) {
 			Log.e(FoursquareUtil.FOURQUARE_LOG_TAG, "Error on get venues on foursquare end point", e);
 		}
@@ -60,10 +79,11 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, CompactVenu
 	}
 
 	@Override
-	protected void onPostExecute(CompactVenue[] result) {
+	protected void onPostExecute(CompactVenue[] venues) {
 		TextView numberOfPlaces = (TextView) activity.findViewById(R.id.numberOfPlacesNearText);
-		numberOfPlaces.setText(String.valueOf(result.length));
+		numberOfPlaces.setText(String.valueOf(VenuesHolder.venuesCount()));
 		
+		new VenuesFragment().updateVenueOnView(VenuesHolder.getVenue(), activity.getFragmentManager().findFragmentById(R.id.venue_fragment));
 		hideProgressBar();
 	}
 
@@ -76,4 +96,5 @@ public class RequestNearVenuesTask extends AsyncTask<String, String, CompactVenu
 	private void hideProgressBar() {
 		this.progressBar.setVisibility(ProgressBar.INVISIBLE);
 	}
+	
 }

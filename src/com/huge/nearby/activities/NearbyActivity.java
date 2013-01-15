@@ -27,7 +27,6 @@ public class NearbyActivity extends Activity{
 	protected void onCreate(Bundle savedInstanceState) {
 		removeTitleBar();
 		super.onCreate(savedInstanceState);
-		
 		setContentView(R.layout.activity_nearby);
 		
 //		String authCode = getIntent().getExtras().getString("access_token");
@@ -44,7 +43,6 @@ public class NearbyActivity extends Activity{
 		});
 		
 		requestVenues(location);
-		
 	}
 
 	private void requestVenues(Location location) {

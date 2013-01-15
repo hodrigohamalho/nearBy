@@ -32,13 +32,21 @@
         android:layout_centerHorizontal="true"
         android:textSize="20sp" />
 
+    <fragment
+        android:id="@+id/venue_fragment"
+        android:name="com.huge.nearby.fragments.VenuesFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/placesFoundLabel"
+        android:layout_marginTop="37dp" />
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/placesFoundLabel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="63dp" />
+        android:layout_alignTop="@+id/venue_fragment"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
