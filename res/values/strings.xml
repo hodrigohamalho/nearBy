@@ -23,5 +23,6 @@
     <string name="places_near_you">Places found near you!</string>
     <string name="refresh_description">refresh the results!</string>
     
+    <string name="place_image">Place image</string>
     
 </resources>
